@@ -3,7 +3,7 @@ import axios from 'axios'
 //封装ajax，返回promise对象，成功调用resolve，失败调用reject
 export default function ajax(url, data={}, type='GET') {
 
-    return new Promise(function (resolve, inject) {
+    return new Promise(function (resolve, reject) {
         let promise
         if(type.toUpperCase()==='GET'){
             let dataStr = '';
