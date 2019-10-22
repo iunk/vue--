@@ -14,7 +14,6 @@ export default {
         const goehash = state.latitude + ',' + state.longitude
         const result = await reqAddress(goehash)
         if(result.code === 0){
-            console.log(result)
             const address = result.data
             commit(RECEIVE_ADDRESS, {address})
         }
