@@ -4,26 +4,26 @@
         <div class="login_header">
           <h2 class="login_logo">硅谷外卖</h2>
           <div class="login_header_title">
-            <a href="javascript:;" class="on">短信登录</a>
-            <a href="javascript:;">密码登录</a>
+            <a href="javascript:;" @click="changeLoginWay(true)" :class='{on: loginWay}'>短信登录</a>
+            <a href="javascript:;" @click="changeLoginWay(false)" :class='{on: !loginWay}'>密码登录</a>
           </div>
         </div>
         <div class="login_content">
           <form>
-            <div class="on">
+            <div :class='{on: loginWay}'>
               <section class="login_message">
-                <input type="tel" maxlength="11" placeholder="手机号">
+                <input type="tel" maxlength="11" placeholder="手机号" v-model="phone">
                 <button disabled="disabled" class="get_verification">获取验证码</button>
               </section>
               <section class="login_verification">
-                <input type="tel" maxlength="8" placeholder="验证码">
+                <input type="tel" maxlength="8" placeholder="验证码" v-model="code">
               </section>
               <section class="login_hint">
                 温馨提示：未注册硅谷外卖帐号的手机号，登录时将自动注册，且代表已同意
                 <a href="javascript:;">《用户服务协议》</a>
               </section>
             </div>
-            <div>
+            <div :class='{on: !loginWay}'>
               <section>
                 <section class="login_message">
                   <input type="tel" maxlength="11" placeholder="手机/邮箱/用户名">
@@ -56,8 +56,19 @@
   export default {
     data() {
       return {
-
+        loginWay: true,  //true代表短信登录，false代表密码登录
+        phone: '',
+        code:''
       };
+    },
+    methods: {
+      changeLoginWay(loginWay){
+        if(loginWay){
+          this.loginWay = true
+        }else{
+          this.loginWay = false
+        }
+      }
     }
   }
 </script>
