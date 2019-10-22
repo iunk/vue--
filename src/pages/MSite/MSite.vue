@@ -138,6 +138,7 @@ import HeaderTop from '../../components/HeaderTop/HeaderTop'
 import ShopList from '../../components/ShopList/ShopList'
 
 export default {
+  
   mounted () {
     new Swiper('.swiper-container',{
       loop: true,
