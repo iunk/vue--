@@ -12,11 +12,9 @@ import {mapActions} from 'vuex'
 export default {
   async mounted () {
     this.getAddress()
-    this.getFoodCategorys()
-    this.getShops()
   },
   methods: {
-    ...mapActions(['getAddress','getFoodCategorys','getShops'])
+    ...mapActions(['getAddress'])
   },
   components: {
     FooterGuide

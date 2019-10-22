@@ -6,7 +6,7 @@ import {
 } from './mutations-types'
 import { 
     reqAddress,
-    reqFoodCategorys,
+    reqCategorys,
     reqShops
 } from '../api'
 
@@ -19,9 +19,8 @@ export default {
             commit(RECEIVE_ADDRESS, {address})
         }
     },
-    async getFoodCategorys({commit, state}){
-        const goehash = state.goehash
-        const result = await reqFoodCategorys(goehash)
+    async getCategorys({commit}){
+        const result = await reqCategorys()
         if(result.code === 0){
             const categorys = result.data
             commit(RECEIVE_CATEGORYS, {categorys})

@@ -53,6 +53,10 @@ export default {
       baseImageURL: 'https://fuss10.elemecdn.com'
     }
   },
+  mounted () {
+   this.$store.dispatch('getCategorys')
+   this.$store.dispatch('getShops')
+  },
   computed: {
     ...mapState(['address','categorys']),
     categoryArr() {

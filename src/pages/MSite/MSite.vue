@@ -30,15 +30,16 @@
           </div>
           <img src="./images/msite_back.svg" alt="" v-else>
         </nav>
+          
         <!--首页附近商家-->
         <div class="msite_shop_list">
           <div class="shop_header">
             <i class="iconfont icon-xuanxiang"></i>
             <span class="shop_header_title">附近商家</span>
           </div>
-         <ShopList />
+        <ShopList />
         </div>
-      </section>
+    </section>
 </template>
 
 <script>
@@ -55,6 +56,10 @@ export default {
     return {
       baseImageURL: 'https://fuss10.elemecdn.com'
     }
+  },
+  mounted () {
+   this.$store.dispatch('getCategorys')
+   this.$store.dispatch('getShops')
   },
   computed: {
     ...mapState(['address','categorys','userinfo']),
